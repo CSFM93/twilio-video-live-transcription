@@ -18,7 +18,6 @@ const twilioClient = twilio(
 
 const storage = multer.diskStorage({
   destination: 'uploads/',
-  // eslint-disable-next-line func-names
   filename: (req, file, cb) => {
     cb(null, file.originalname);
   },
