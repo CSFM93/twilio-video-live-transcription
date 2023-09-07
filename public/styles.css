@@ -1,0 +1,66 @@
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.main-container {
+    height: 100%;
+    width: 100%;
+}
+
+#active-speaker-container {
+    height: 94vh;
+    background-color: black;
+}
+
+#main-feed {
+    height: 80%;
+    width: 100%;
+    position: relative;
+}
+
+#live-transcript-container{
+    height: 10%;
+}
+
+.transcript-p{
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+}
+
+#webcam-feed-container {
+    height: 94vh;
+}
+
+.participantDiv {
+    padding: 2%;
+    background-color: black;
+    height: 35%;
+    width: 100%;
+    position: relative;
+}
+
+.usernameDiv {
+    bottom: 4%;
+    left: 1%;
+    background-color: black;
+    opacity: 0.7;
+    padding-left: 2%;
+    text-align: left;
+    color: white;
+    position: absolute;
+
+}
+
+
+.dominant-speaker {
+    outline: 3px solid green;
+}
+
+
+video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
