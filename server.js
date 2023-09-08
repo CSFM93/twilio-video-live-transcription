@@ -25,10 +25,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-const { initialize, transcribe } = require('./whisper');
-
-initialize();
-
 app.use(express.json());
 app.use(express.static('public'));
 
@@ -74,20 +70,6 @@ app.post('/join-room', async (req, res) => {
   res.send({
     token,
   });
-});
-
-app.post('/uploadAudio', upload.single('audio'), async (req, res) => {
-  if (req.file === undefined) {
-    res.send({
-      success: false,
-    });
-  } else {
-    const transcript = await transcribe(req.file.path);
-    res.send({
-      success: true,
-      transcript: transcript === undefined ? '' : transcript.text,
-    });
-  }
 });
 
 app.listen(port, () => {
