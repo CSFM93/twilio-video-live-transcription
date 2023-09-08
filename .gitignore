@@ -1,7 +1,4 @@
 .env
 /node_modules
-**.wav
-**.mp3
-**.bin
-.eslintignore
-.eslintrc.js
+
+
