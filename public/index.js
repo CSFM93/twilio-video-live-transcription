@@ -112,7 +112,6 @@ function handleTrackSubscription(track, participant) {
     track.on('message', (data) => {
       console.log('transcript received')
       const message = JSON.parse(data);
-      showTranscript(message.transcript, participant.identity);
     });
   }
 }
@@ -128,19 +127,3 @@ function truncate(str, max) {
 }
 
 startRoom();
-
-function showTranscript(transcript, identity) {
-  if (transcript !== '') {
-    const pElement = document.createElement('p');
-    pElement.setAttribute('class', 'transcript-p');
-    const username = identity === room.localParticipant.identity ? '[ You ]' : `[ user-${truncate(identity, 10)} ]`;
-    pElement.innerText = `${username}: ${transcript}`;
-
-    if (divLiveTranscript.children.length < 2) {
-      divLiveTranscript.appendChild(pElement);
-    } else {
-      divLiveTranscript.removeChild(divLiveTranscript.firstElementChild);
-      divLiveTranscript.appendChild(pElement);
-    }
-  }
-}
